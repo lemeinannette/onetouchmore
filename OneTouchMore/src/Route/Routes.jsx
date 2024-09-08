@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "../Components/Home";
-import About from "../Components/About";
-import FAQs from "../Components/FAQs";
-import ContactUs from "../Components/ContactUs";
-import BookRepair from "../Components/BookRepair";
-import NavBar from "../Components/NavBar";
-import FindRepair from "../Components/FindRepair";
+import Home from "../Components/Home/Home";
+import About from "../Components/About/About";
+import FAQs from "../Components/FAQ/FAQs";
+import ContactUs from "../Components/Contact/ContactUs";
+import BookRepair from "../Components/BookRepair/BookRepair";
+import NavBar from "../Components/Navbar/NavBar";
+import FindRepair from "../Components/FindRepairs/FindRepair";
 const AppRoutes = () => {
   return (
     <>
