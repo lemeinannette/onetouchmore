@@ -1,8 +1,15 @@
 /* NavBar.css */
 
+/* Define the color variables */
+:root {
+  --primary-color: #3cd8c9;
+  --secondary-color: #7cf0e5;
+  --accent-color: #47f8e7;
+}
+
 .navbar {
-  background-color: black; /* Change background to black */
-  color: white; /* Text color to white */
+  background-color: black; /* Background color of the navbar */
+  color: white; /* Text color for links */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly more pronounced shadow */
   padding: 0.5rem 1rem; /* Adjust padding to reduce width */
   display: flex;
@@ -32,7 +39,7 @@
 }
 
 .navbar a:hover {
-  color: #fbbf24; /* Tailwind's yellow-400 for hover effect */
+  color: var(--primary-color); /* Use primary color on hover */
   transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
@@ -42,7 +49,7 @@
 }
 
 .navbar .book-repair-button {
-  background-color: #fbbf24; /* Tailwind's yellow-400 for button background */
+  background-color: var(--primary-color); /* Primary color for button background */
   color: black; /* Text color for the button */
   border: none;
   border-radius: 9999px; /* Fully rounded button */
@@ -52,7 +59,7 @@
 }
 
 .navbar .book-repair-button:hover {
-  background-color: #f59e0b; /* Slightly darker yellow on hover */
+  background-color: var(--accent-color); /* Accent color on hover */
   transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
