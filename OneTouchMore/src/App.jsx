@@ -1,18 +1,14 @@
-import  React  from 'react'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./Route/Routes"; // Adjust the path if necessary
+import "./index.css";
 
-import Home from './Home'
-import About from './About'
-import FAQs from './FAQs'
-function App() {
-  
+const App = () => {
   return (
-    <>
-    <Home/>
-    <About/>
-    <FAQs/>
-    </>
-  )
-}
+    <Router>
+      <AppRoutes />
+    </Router>
+  );
+};
 
-export default App  ;
+export default App;
