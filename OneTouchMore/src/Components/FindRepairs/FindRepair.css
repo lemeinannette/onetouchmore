@@ -1,0 +1,134 @@
+.find-repair-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #333;
+}
+
+h1 {
+  color: #3cd8c9; /* Primary color */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar-category {
+  display: flex;
+  justify-content: space-between; /* Space between search and category dropdown */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  position: relative; /* Positioning context for the search icon */
+}
+
+.search-bar input {
+  padding: 8px;
+  padding-right: 32px; /* Space for the search icon */
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 250px;
+  box-sizing: border-box;
+}
+
+.search-bar svg {
+  position: absolute;
+  right: 10px; /* Positioning the icon inside the input */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #3cd8c9;
+  pointer-events: none; /* Make sure the icon doesn't interfere with input */
+}
+
+.category-filter {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.category-filter select {
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+.accessory-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.accessory-card {
+  background: #f2f2f2; /* Slightly darker shade */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 220px;
+  padding: 15px;
+  position: relative;
+}
+
+.accessory-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.accessory-details {
+  margin-top: 10px;
+}
+
+.accessory-name {
+  font-size: 18px;
+  color: #1a8b8c; /* Darker primary color */
+}
+
+.accessory-price {
+  font-size: 16px;
+  color: #333;
+}
+
+.accessory-buttons {
+  margin-top: 10px;
+  display: flex; /* Align buttons horizontally */
+  justify-content: space-between; /* Distribute space between buttons */
+}
+
+.add-to-cart-button, .buy-now-button {
+  background-color: #164d48; /* Primary color */
+  color: #fff;
+  border: none;
+  padding: 4px 8px; /* Reduced padding */
+  border-radius: 20px; /* Oval shape */
+  cursor: pointer;
+  font-size: 12px; /* Smaller font size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px; /* Smaller width */
+}
+
+.add-to-cart-button:hover {
+  background-color: #2a9d8f; /* Darker primary color */
+}
+
+.buy-now-button {
+  background-color: #0e5951; /* Accent color */
+}
+
+.buy-now-button:hover {
+  background-color: #36b2a7; /* Darker accent color */
+}
+
+.add-to-cart-button svg, .buy-now-button svg {
+  margin-right: 4px; /* Adjust spacing for smaller buttons */
+}

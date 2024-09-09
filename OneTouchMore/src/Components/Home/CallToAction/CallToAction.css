@@ -1,0 +1,50 @@
+.cta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff; /* White background for the card */
+  border-radius: 20px; /* Oval shape */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  text-align: center; /* Center-align content */
+}
+
+.cta-content {
+  max-width: 500px;
+}
+
+.cta-content h2 {
+  font-size: 24px;
+  color: #333; /* Dark text color */
+  margin-bottom: 10px;
+}
+
+.cta-content p {
+  font-size: 16px;
+  color: #666; /* Muted text color */
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.cta-schedule-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #3cd8c9; /* Primary color */
+  border: none;
+  border-radius: 30px; /* Oval button shape */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block; /* Ensures button is centered properly */
+  margin: 0 auto; /* Center-align the button */
+}
+
+.cta-schedule-btn:hover {
+  background-color: #47f8e7; /* Accent color */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.cta-schedule-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #7cf0e5; /* Secondary color for focus outline */
+}

@@ -1,0 +1,50 @@
+.repair-categories-container {
+  display: flex;
+  justify-content: center; /* Center the cards horizontally */
+  gap: 2rem; /* Increased space between cards */
+  padding: 2rem;
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.repair-category {
+  display: flex;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px; /* Rounded corners */
+  padding: 1.5rem; /* Increased padding for larger look */
+  width: 320px; /* Increased width for larger cards */
+  align-items: center;
+  gap: 1rem; /* Space between image and text */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.category-image {
+  width: 100px; /* Larger images */
+  height: 100px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.category-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.repair-category h2 {
+  margin: 0;
+  font-size: 1.6rem; /* Slightly larger font size */
+  color: #333;
+}
+
+.repair-category p {
+  margin: 0;
+  font-size: 1.1rem; /* Slightly larger text */
+  color: #555;
+}
+
+.repair-category:hover {
+  transform: scale(1.05); /* Slightly larger scale on hover */
+}

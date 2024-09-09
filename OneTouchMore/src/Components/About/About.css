@@ -1,0 +1,76 @@
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem; /* Reduced gap between cards */
+  padding: 1rem; /* Reduced padding around the container */
+  background-color: #f0f4f8; /* Light background color */
+}
+
+.about-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem; /* Reduced gap between elements in the card */
+  border-radius: 8px; /* Reduced border-radius for smaller cards */
+  padding: 1rem; /* Reduced padding inside the card */
+  background-color: #ffffff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+}
+
+.about-card:hover {
+  transform: translateY(-3px); /* Reduced hover effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Reduced hover shadow */
+}
+
+/* Left and right alignment for responsive view */
+.about-card.align-left {
+  justify-content: flex-start;
+}
+
+.about-card.align-right {
+  justify-content: flex-end;
+}
+
+/* Icon styling */
+.card-icon {
+  font-size: 2rem; /* Reduced icon size */
+  margin-bottom: 0.25rem; /* Reduced margin below icon */
+  color: #3cd8c9; /* Adjust icon color */
+}
+
+.card-content h2 {
+  margin: 0;
+  font-size: 1.5rem; /* Reduced font size for heading */
+  color: #333;
+  font-weight: bold;
+}
+
+.card-content p {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem; /* Reduced font size for text */
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Custom background colors for specific cards */
+.about-card:nth-child(1) {
+  background-color: #f0f8ff;
+}
+
+.about-card:nth-child(2) {
+  background-color: #f9f9f9;
+}
+
+.about-card:nth-child(3) {
+  background-color: #f0f8ff;
+}
+
+.about-card:nth-child(4) {
+  background-color: #f9f9f9;
+}
+
+.about-card:nth-child(5) {
+  background-color: #f0f8ff;
+}

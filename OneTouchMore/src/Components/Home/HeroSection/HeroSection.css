@@ -1,0 +1,71 @@
+.hero-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white; /* White background */
+    padding: 20px;
+    border-radius: 50px; /* Oval shape */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px; /* Make the card smaller */
+    margin: 50px auto;
+    height: 280px; /* Slightly increased height */
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-description {
+    flex: 1;
+    padding: 20px; /* Increased padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically align the text */
+    position: relative;
+}
+
+.hero-description h1 {
+    font-size: 1.8rem; /* Slightly reduced heading size */
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.hero-description p {
+    font-size: 0.9rem; /* Reduced paragraph text size */
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 60px; /* Added extra margin to give more space for the button */
+}
+
+/* Button styling */
+.cta-button {
+    background-color: #3cd8c9; /* Primary color */
+    color: black;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 30px; /* Oval shape */
+    position: absolute;
+    bottom: 20px; /* Moved down */
+    left: 20px; /* Positioned at the left */
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #47f8e7; /* Accent color on hover */
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-image img {
+    max-height: 100%;
+    object-fit: cover;
+    border-top-right-radius: 50px; /* Match card's radius */
+    border-bottom-right-radius: 50px; /* Match card's radius */
+}
