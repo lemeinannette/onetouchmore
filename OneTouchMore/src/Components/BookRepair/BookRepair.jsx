@@ -1,19 +1,23 @@
 import React, { useState } from "react";
-import "./BookRepair.css";
-import Footer from "../Footer/Footer";
+import "./BookRepair.css"; // Make sure this file is in the same folder
+import Footer from "../Footer/Footer"; // Adjust the import path as needed
+
 const BookRepair = () => {
+  // State hooks to manage form inputs
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
   const [phoneModel, setPhoneModel] = useState("");
   const [issue, setIssue] = useState("");
   const [status, setStatus] = useState("Functional");
   const [diagnostic, setDiagnostic] = useState("");
-  const [contactMethod, setContactMethod] = useState("email");
+  const [contactMethod, setContactMethod] = useState("phone");
   const [customStatus, setCustomStatus] = useState("");
   const [customIssue, setCustomIssue] = useState("");
   const [additionalDetails, setAdditionalDetails] = useState("");
   const [message, setMessage] = useState("");
 
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here (e.g., send data to an API or email)
@@ -49,23 +53,6 @@ const BookRepair = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="phone-number">Phone Number:</label>
-              <input
-                type="tel"
-                id="phone-number"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                required
-                placeholder="Enter your phone number"
-              />
-              <small className="form-explanation">
-                Please provide a valid phone number where we can reach you.
-              </small>
-            </div>
-          </div>
-
-          <div className="form-row">
-            <div className="form-group">
               <label htmlFor="phone-model">Phone Model:</label>
               <input
                 type="text"
@@ -79,7 +66,9 @@ const BookRepair = () => {
                 Specify the model of the phone you are bringing in for repair.
               </small>
             </div>
+          </div>
 
+          <div className="form-row">
             <div className="form-group">
               <label htmlFor="issue">Issue Description:</label>
               <select
@@ -108,9 +97,7 @@ const BookRepair = () => {
                 Choose 'Other' if none of the listed options fit.
               </small>
             </div>
-          </div>
 
-          <div className="form-row">
             <div className="form-group">
               <label htmlFor="status">Phone Condition Status:</label>
               <select
@@ -137,7 +124,9 @@ const BookRepair = () => {
                 'Other', please provide additional details.
               </small>
             </div>
+          </div>
 
+          <div className="form-row">
             <div className="form-group">
               <label htmlFor="diagnostic">Diagnostic Information:</label>
               <select
@@ -155,9 +144,7 @@ const BookRepair = () => {
                 you don't have a diagnostic report.
               </small>
             </div>
-          </div>
 
-          <div className="form-row">
             <div className="form-group">
               <label htmlFor="contact-method">Preferred Contact Method:</label>
               <select
@@ -165,8 +152,8 @@ const BookRepair = () => {
                 value={contactMethod}
                 onChange={(e) => setContactMethod(e.target.value)}
               >
-                <option value="email">Email</option>
                 <option value="phone">Phone</option>
+                <option value="email">Email</option>
               </select>
               <small className="form-explanation">
                 Choose how you would prefer to be contacted regarding your
@@ -174,6 +161,42 @@ const BookRepair = () => {
               </small>
             </div>
 
+            {contactMethod === "phone" && (
+              <div className="form-group">
+                <label htmlFor="phone-number">Phone Number:</label>
+                <input
+                  type="tel"
+                  id="phone-number"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  required={contactMethod === "phone"}
+                  placeholder="Enter your phone number"
+                />
+                <small className="form-explanation">
+                  Please provide a valid phone number where we can reach you.
+                </small>
+              </div>
+            )}
+
+            {contactMethod === "email" && (
+              <div className="form-group">
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required={contactMethod === "email"}
+                  placeholder="Enter your email address"
+                />
+                <small className="form-explanation">
+                  Please provide a valid email address where we can reach you.
+                </small>
+              </div>
+            )}
+          </div>
+
+          <div className="form-row">
             <div className="form-group">
               <label htmlFor="additional-details">Additional Details:</label>
               <textarea

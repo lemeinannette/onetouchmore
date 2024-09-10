@@ -18,6 +18,8 @@
   border-radius: 9999px; /* Fully rounded (oval) shape */
   max-width: 60%; /* Adjust this value to reduce width */
   margin: 0 auto; /* Center the navbar horizontally */
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .navbar ul {

@@ -1,0 +1,14 @@
+/* src/Components/Dashboard/Dashboard.css */
+
+.dashboard-container {
+    display: flex;
+}
+
+.dashboard-content {
+    margin-left: 250px; /* This should match the width of the sidebar */
+    padding: 20px;
+    flex: 1; /* Ensures the content takes up the remaining space */
+    background-color: #f4f4f9; /* Optional: Light background for the main content */
+    height: 100vh; /* Optional: Set height to full view height */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+}

@@ -1,0 +1,13 @@
+// src/Components/Admin/Admin.js
+import React from "react";
+import Login from "../Login/Login";
+
+const Admin = () => {
+  return (
+    <div>
+      <Login />
+    </div>
+  );
+};
+
+export default Admin;
