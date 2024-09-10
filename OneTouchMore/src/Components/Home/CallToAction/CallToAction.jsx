@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./CallToAction.css";
 
 const CallToAction = () => {
@@ -10,7 +11,7 @@ const CallToAction = () => {
           Don’t let a broken device slow you down. Our experts are here to
           provide fast, reliable, and affordable repair services.
         </p>
-        <button className="cta-schedule-btn">Schedule a Repair</button>
+        <Link to="/book-repair" className="cta-schedule-btn">Schedule a Repair</Link>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./HeroSection.css"; // Import CSS file for styling
 import Img from "../../../assets/hero.png";
 
@@ -12,7 +13,7 @@ const HeroSection = () => {
           technicians are dedicated to bringing your phone back to life with the
           highest quality parts and precision repairs.
         </p>
-        <button className="cta-button">Book a Repair</button>
+         <Link to="/book-repair" className="cta-button">Book a Repair</Link>
       </div>
       <div className="hero-image">
         <img src={Img} alt="Phone Repair" />
