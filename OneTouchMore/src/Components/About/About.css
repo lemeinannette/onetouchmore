@@ -1,76 +1,125 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+h2 {
+  color: #333;
+  font-size: 2.5rem; /* Increased font size */
+}
+
+p {
+  color: #666;
+  font-size: 1.2rem; /* Increased font size */
+  line-height: 1.7;
+}
+
+/* About Section */
+.about-section {
+  padding: 20px;
+}
+
+.about-content {
+  display: flex;
+  align-items: flex-start; /* Align items at the top */
+  gap: 20px; /* Space between image and text */
+}
+
+.about-image img {
+  max-width: 100%; /* Ensure the image fits well within its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.about-text {
+  max-width: 60%; /* Control text container width */
+}
+
+.about-text h2 {
+  margin-top: 0; /* Remove margin to ensure header is at the top */
+}
+
+.about-text p {
+  line-height: 1.6; /* Improve readability */
+}
+
+/* CEO Section */
+.ceo-section {
+  display: flex;
+  justify-content: space-between; /* Align the image and content side by side */
+  align-items: center;
+  padding: 2rem;
+  background-color: #fafafa;
+  margin-bottom: 2rem;
+  flex-wrap: wrap; /* Ensures content doesn't overflow on smaller screens */
+}
+
+.ceo-content {
+  max-width: 50%;
+  margin-right: 2rem; /* Add spacing between the image and content */
+}
+
+.ceo-image img {
+  max-width: 100%;
+  height: auto;
+  width: 450px; /* Adjusted image width */
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+/* About Cards Section */
 .about-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem; /* Reduced gap between cards */
-  padding: 1rem; /* Reduced padding around the container */
-  background-color: #f0f4f8; /* Light background color */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #fff;
 }
 
 .about-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem; /* Reduced gap between elements in the card */
-  border-radius: 8px; /* Reduced border-radius for smaller cards */
-  padding: 1rem; /* Reduced padding inside the card */
-  background-color: #ffffff;
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-card:hover {
-  transform: translateY(-3px); /* Reduced hover effect */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Reduced hover shadow */
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Left and right alignment for responsive view */
-.about-card.align-left {
-  justify-content: flex-start;
-}
-
-.about-card.align-right {
-  justify-content: flex-end;
-}
-
-/* Icon styling */
 .card-icon {
-  font-size: 2rem; /* Reduced icon size */
-  margin-bottom: 0.25rem; /* Reduced margin below icon */
-  color: #3cd8c9; /* Adjust icon color */
+  font-size: 3rem;
+  color: #3cd8c9; /* Same color as the footer */
+  margin-bottom: 1rem;
 }
 
 .card-content h2 {
-  margin: 0;
-  font-size: 1.5rem; /* Reduced font size for heading */
+  font-size: 1.7rem; /* Slightly increased font size */
   color: #333;
-  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .card-content p {
-  margin: 0.25rem 0 0;
-  font-size: 0.875rem; /* Reduced font size for text */
-  line-height: 1.5;
-  color: #555;
+  font-size: 1.2rem; /* Slightly increased font size */
+  color: #666;
 }
 
-/* Custom background colors for specific cards */
-.about-card:nth-child(1) {
-  background-color: #f0f8ff;
+/* Footer Styling */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
 }
 
-.about-card:nth-child(2) {
-  background-color: #f9f9f9;
-}
-
-.about-card:nth-child(3) {
-  background-color: #f0f8ff;
-}
-
-.about-card:nth-child(4) {
-  background-color: #f9f9f9;
-}
-
-.about-card:nth-child(5) {
-  background-color: #f0f8ff;
+footer p {
+  margin: 0;
+  font-size: 1rem; /* Increased font size */
 }

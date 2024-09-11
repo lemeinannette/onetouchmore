@@ -13,6 +13,47 @@ import Footer from "../Footer/Footer";
 const AboutUs = () => {
   return (
     <>
+      {/* About Section */}
+      <div className="about-section">
+      <h2>About Us</h2>
+        <div className="about-content">
+         
+          <div className="about-image">
+          <img src="https://img.freepik.com/free-vector/professional-mechanic-isometric-concept-with-equipment-call-symbols_1284-26981.jpg?t=st=1726064120~exp=1726067720~hmac=4210099abed43829960e3d0541e07804612cd1a31cc98014bf1d5723749dc6c9&w=900" alt="About Us" /> {/* Path to your about us image */}
+        </div>
+        <p>
+            Welcome to ONETOUCHMORE your one-stop shop for all things
+            mobile! We are a team of passionate phone enthusiasts dedicated to
+            providing exceptional service and high-quality products to our
+            valued customers. Whether you're looking for the latest smartphone,
+            accessories, or expert repairs, we've got you covered.
+          </p>
+         
+        </div>
+        </div>
+
+      {/* CEO Section */}
+      <div className="ceo-section">
+        <div className="ceo-image">
+          <img src="https://img.freepik.com/premium-photo/web-developer-game-software-design_1297153-30094.jpg?w=826" alt="CEO" /> 
+        </div>
+        <div className="ceo-content">
+          <h2>Message from the CEO</h2>
+          <p>
+            As the founder of ONETOUCHMORE, I am incredibly proud of the
+            team we've assembled and the impact we've made in the community. We
+            are driven by a passion for technology and a desire to make a
+            positive difference in people's lives. Our goal is to provide our
+            customers with the best possible mobile experience, whether it's
+            finding their dream phone, getting their device fixed quickly, or
+            simply receiving excellent customer service. I believe in the power
+            of technology to connect us and enhance our lives, and I'm
+            excited to see what the future holds for ONETOUCHMORE and our
+            valued customers.
+          </p>
+        </div>
+      </div>
+
       <div className="about-container">
         <div className="about-card">
           <FaShieldAlt className="card-icon" />
@@ -85,6 +126,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );

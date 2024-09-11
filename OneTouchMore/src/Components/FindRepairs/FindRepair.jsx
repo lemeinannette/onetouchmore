@@ -189,14 +189,15 @@ const accessories = [
 ];
 
 
-const FindRepair = () => {
-  const [cart, setCart] = useState([]);
+const FindRepair = ({handleAddToCart}) => {
+  // const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("All");
 
-  const handleAddToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
-  };
+  // const handleAddToCart = (item) => {
+  //   setCart((prevCart) => [...prevCart, item]);
+  //   console.log(cart);
+  // };
 
   const handleBuyNow = (item) => {
     // Redirect to WhatsApp with message
@@ -234,7 +235,7 @@ const FindRepair = () => {
             <AccessoryCard
               key={item.id}
               item={item}
-              handleAddToCart={handleAddToCart}
+              handleAddToCart={() => handleAddToCart(item)}
               handleBuyNow={handleBuyNow}
             />
           ))}
