@@ -1,125 +1,70 @@
-/* General Styling */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
-h2 {
-  color: #333;
-  font-size: 2.5rem; /* Increased font size */
-}
-
-p {
-  color: #666;
-  font-size: 1.2rem; /* Increased font size */
-  line-height: 1.7;
-}
-
-/* About Section */
-.about-section {
-  padding: 20px;
-}
-
-.about-content {
-  display: flex;
-  align-items: flex-start; /* Align items at the top */
-  gap: 20px; /* Space between image and text */
-}
-
-.about-image img {
-  max-width: 100%; /* Ensure the image fits well within its container */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.about-text {
-  max-width: 60%; /* Control text container width */
-}
-
-.about-text h2 {
-  margin-top: 0; /* Remove margin to ensure header is at the top */
-}
-
-.about-text p {
-  line-height: 1.6; /* Improve readability */
-}
-
-/* CEO Section */
-.ceo-section {
-  display: flex;
-  justify-content: space-between; /* Align the image and content side by side */
-  align-items: center;
-  padding: 2rem;
-  background-color: #fafafa;
-  margin-bottom: 2rem;
-  flex-wrap: wrap; /* Ensures content doesn't overflow on smaller screens */
-}
-
-.ceo-content {
-  max-width: 50%;
-  margin-right: 2rem; /* Add spacing between the image and content */
-}
-
-.ceo-image img {
-  max-width: 100%;
-  height: auto;
-  width: 450px; /* Adjusted image width */
-  border-radius: 10px;
-  margin: 1rem 0;
-}
-
-/* About Cards Section */
 .about-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  background-color: #fff;
+  font-family: Arial, sans-serif;
+  width: 800px; /* Increased width for a larger container */
+  position: relative; /* Changed to relative for natural document flow */
+  margin: 50px auto 0; /* Added top margin to give space below the navbar, adjust this value based on navbar's height */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9; /* Very light background color for the main container */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow around the container */
 }
 
-.about-card {
-  background-color: #f9f9f9;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.columns {
+  display: flex;
+  gap: 20px; /* Ensure there is a gap between the two columns */
 }
 
-.about-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.left-column, .right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.card-icon {
-  font-size: 3rem;
-  color: #3cd8c9; /* Same color as the footer */
-  margin-bottom: 1rem;
+.header {
+  text-align: left; /* Ensures the header text is aligned left */
 }
 
-.card-content h2 {
-  font-size: 1.7rem; /* Slightly increased font size */
+.header h1 {
+  font-size: 24px;
   color: #333;
-  margin-bottom: 1rem;
 }
 
-.card-content p {
-  font-size: 1.2rem; /* Slightly increased font size */
+.header p {
+  font-size: 16px;
   color: #666;
+  margin-bottom: 20px; /* Added space below the paragraph for better separation */
 }
 
-/* Footer Styling */
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+.value-box {
+  background-color: #ffffff; /* Very light color for individual value boxes */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
-footer p {
-  margin: 0;
-  font-size: 1rem; /* Increased font size */
+.icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.value-box h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 0; /* Removed bottom margin to eliminate space */
+}
+
+.value-box p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+  text-align: left; /* Ensures all text in paragraphs is left-justified */
+  margin-top: 0; /* Ensures no additional space is added above the paragraph */
+}
+
+p::before {
+  content: "\A";
+  white-space: pre;
 }

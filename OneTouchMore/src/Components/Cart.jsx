@@ -1,18 +1,42 @@
-import React from "react";
-import './Cart.css'; // Import the CSS
+import React, { useState } from "react";
+import './Cart.css'; 
 
 const Cart = ({ cart }) => {
-  // Calculate total price
-  const totalPrice = cart.reduce((total, item) => {
-    // Assuming item.price is a string with 'Sh' prefix, we extract the number and parse it to an integer
+  
+  const [cartItems, setCartItems] = useState(cart.map(item => ({ ...item, quantity: 1 })));
+
+ 
+  const handleAddQuantity = (index) => {
+    const updatedCart = cartItems.map((item, i) => 
+      i === index ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCartItems(updatedCart);
+  };
+
+  
+  const handleDecreaseQuantity = (index) => {
+    const updatedCart = cartItems.map((item, i) => 
+      i === index ? { ...item, quantity: Math.max(1, item.quantity - 1) } : item
+    );
+    setCartItems(updatedCart);
+  };
+
+  
+  const handleRemoveFromCart = (index) => {
+    const updatedCart = cartItems.filter((_, i) => i !== index);
+    setCartItems(updatedCart);
+  };
+
+  
+  const totalPrice = cartItems.reduce((total, item) => {
     const price = parseInt(item.price.replace('Sh', '').replace(',', ''));
-    return total + price;
+    return total + (price * item.quantity);
   }, 0);
 
   return (
     <div className="cart-container">
       <h2>Your Cart</h2>
-      {cart.length === 0 ? (
+      {cartItems.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
         <div className="cart-content">
@@ -23,15 +47,23 @@ const Cart = ({ cart }) => {
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              {cart.map((item, index) => (
+              {cartItems.map((item, index) => (
                 <tr key={index}>
                   <td>{item.name}</td>
                   <td>{item.price}</td>
-                  <td>1</td>
-                  <td>{item.price}</td>
+                  <td>
+                    <button onClick={() => handleDecreaseQuantity(index)}>-</button>
+                    {item.quantity}
+                    <button onClick={() => handleAddQuantity(index)}>+</button>
+                  </td>
+                  <td>Sh {(parseInt(item.price.replace('Sh', '').replace(',', '')) * item.quantity).toLocaleString()}</td>
+                  <td>
+                    <button onClick={() => handleRemoveFromCart(index)}>Delete</button>
+                  </td>
                 </tr>
               ))}
             </tbody>
