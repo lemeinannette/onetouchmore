@@ -1,0 +1,89 @@
+
+.checkout-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  input, select {
+    padding: 10px;
+    border: 2px solid #3cd8c9; 
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  input:focus, select:focus {
+    border-color: #47f8e7; 
+    outline: none;
+  }
+  
+  input[type="text"] {
+    background-color: #e0f7fa; 
+  }
+  
+  
+  select {
+    background-color: #7cf0e5; 
+  }
+  
+  /* Total Price */
+  h3 {
+    color: #3cd8c9; 
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Submit Button */
+  .checkout-submit {
+    background-color: #47f8e7; 
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .checkout-submit:hover {
+    background-color: #3cd8c9;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .checkout-container {
+      padding: 15px;
+      width: 90%;
+    }
+  
+    input, select {
+      font-size: 0.9rem;
+    }
+  
+    .checkout-submit {
+      font-size: 1rem;
+    }
+  }
+  
