@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import "./FindRepair.css";
 import SearchBar from "./SearchBar/SearchBar";
 import CategoryFilter from "./CategoryFilter/CategoryFilter";
 import AccessoryCard from "./AccessoryCard/AccessoryCard";
 import Footer from "../Footer/Footer";
+import { FaShoppingCart } from "react-icons/fa";
 // Dummy data for accessories
 const accessories = [
   {
@@ -189,10 +191,11 @@ const accessories = [
 ];
 
 
-const FindRepair = ({handleAddToCart}) => {
+const FindRepair = ({handleAddToCart, cart}) => {
   // const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("All");
+  const cartCount = cart.length;
 
   // const handleAddToCart = (item) => {
   //   setCart((prevCart) => [...prevCart, item]);
@@ -216,12 +219,17 @@ const FindRepair = ({handleAddToCart}) => {
 
   return (
     <>
-      <div className="find-repair-container">
-        <h1>Accessory Hunt</h1>
-        <p>
-          Get all mobile phone spares, tools and equipment. Delivery country
-          wide! Order Now.
-        </p>
+<div className="find-repair-container">
+        {/* Title and Cart Icon */}
+        <div className="title-cart">
+          <h1>Accessory Hunt</h1>
+          <div className="cart-button">
+            <Link to="/cart">
+              <FaShoppingCart />
+              <span className="cart-count">{cartCount}</span>
+            </Link>
+          </div>
+        </div>
 
         <div className="search-bar-category">
           <div className="search-bar">

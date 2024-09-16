@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './Cart.css'; 
 import Checkout from './Checkout';  // Import the Checkout component
 
 const Cart = ({ cart }) => {
-  
   const [cartItems, setCartItems] = useState(cart.map(item => ({ ...item, quantity: 1 })));
-  const [isCheckout, setIsCheckout] = useState(false);  // State to toggle checkout
+  const navigate = useNavigate();  // Hook for navigation
 
   const handleAddQuantity = (index) => {
     const updatedCart = cartItems.map((item, i) => 
@@ -32,55 +32,51 @@ const Cart = ({ cart }) => {
   }, 0);
 
   const handleCheckoutClick = () => {
-    setIsCheckout(true);  // Toggle to show the Checkout component
+    // Navigate to the Checkout page
+    navigate('/checkout');
   };
 
   return (
     <div className="cart-container">
       <h2>Your Cart</h2>
-      {isCheckout ? ( 
-        // Show Checkout component if the checkout button is clicked
-        <Checkout cartItems={cartItems} totalPrice={totalPrice} />
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty</p>
       ) : (
-        cartItems.length === 0 ? (
-          <p>Your cart is empty</p>
-        ) : (
-          <div className="cart-content">
-            <table className="cart-table">
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
-                  <th>Actions</th>
+        <div className="cart-content">
+          <table className="cart-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.name}</td>
+                  <td>{item.price}</td>
+                  <td>
+                    <button onClick={() => handleDecreaseQuantity(index)}>-</button>
+                    {item.quantity}
+                    <button onClick={() => handleAddQuantity(index)}>+</button>
+                  </td>
+                  <td>Sh {(parseInt(item.price.replace('Sh', '').replace(',', '')) * item.quantity).toLocaleString()}</td>
+                  <td>
+                    <button onClick={() => handleRemoveFromCart(index)}>Delete</button>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {cartItems.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item.name}</td>
-                    <td>{item.price}</td>
-                    <td>
-                      <button onClick={() => handleDecreaseQuantity(index)}>-</button>
-                      {item.quantity}
-                      <button onClick={() => handleAddQuantity(index)}>+</button>
-                    </td>
-                    <td>Sh {(parseInt(item.price.replace('Sh', '').replace(',', '')) * item.quantity).toLocaleString()}</td>
-                    <td>
-                      <button onClick={() => handleRemoveFromCart(index)}>Delete</button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+              ))}
+            </tbody>
+          </table>
 
-            <div className="cart-summary">
-              <h3>Subtotal: Sh {totalPrice.toLocaleString()}</h3>
-              <button className="checkout-button" onClick={handleCheckoutClick}>Checkout</button>
-            </div>
+          <div className="cart-summary">
+            <h3>Subtotal: Sh {totalPrice.toLocaleString()}</h3>
+            <button className="checkout-button" onClick={handleCheckoutClick}>Checkout</button>
           </div>
-        )
+        </div>
       )}
     </div>
   );

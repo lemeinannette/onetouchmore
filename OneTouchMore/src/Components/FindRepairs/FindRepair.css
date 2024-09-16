@@ -132,3 +132,59 @@ p {
 .add-to-cart-button svg, .buy-now-button svg {
   margin-right: 4px; /* Adjust spacing for smaller buttons */
 }
+.cart-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+}
+
+.cart-button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cart-count {
+  background-color: #ff6347;
+  color: white;
+  padding: 3px 7px;
+  border-radius: 50%;
+  font-size: 14px;
+  margin-left: 5px;
+}
+/* Styles for title and cart button */
+.title-cart {
+  position: relative; /* For positioning the cart icon */
+  display: flex;
+  justify-content: center; /* Center the title */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #3cd8c9; /* Primary color */
+  margin: 0; /* Remove extra margin */
+  text-align: center;
+}
+
+.cart-button {
+  position: absolute;
+  right: 40px; /* Move it slightly left from the edge */
+  font-size: 24px; /* Adjust cart icon size */
+}
+
+.cart-button a {
+  color: #3cd8c9; /* Cart icon color */
+  text-decoration: none;
+}
+
+.cart-count {
+  background-color: #ff6347; /* Red for cart count */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 14px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}

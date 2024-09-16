@@ -10,6 +10,7 @@ import FindRepair from "../Components/FindRepairs/FindRepair";
 import Admin from "../Components/Admin/Admin";
 import Dashboard from "../Components/Admin/Dashboard";
 import Cart from "../Components/Cart";
+import Checkout from "../Components/Checkout"; // Import the Checkout component
 
 const AppRoutes = () => {
   const [cart, setCart] = useState([]);
@@ -17,9 +18,7 @@ const AppRoutes = () => {
 
   const isAdminAccess = () => {
     // Check for admin access via a query parameter or URL path
-    // Example: Access via hidden URL like '/admin-access?key=SECRET_KEY'
     const searchParams = new URLSearchParams(window.location.search);
-    // Example: Replace this in your AppRoutes component
     return searchParams.get("key") === "12345secureAccess"; // Replace with your actual secret key
   };
 
@@ -30,6 +29,12 @@ const AppRoutes = () => {
     setCart((prevCart) => [...prevCart, item]);
     console.log(cart);
   };
+
+  // Calculate total price for checkout
+  const totalPrice = cart.reduce((total, item) => {
+    const price = parseInt(item.price.replace('Sh', '').replace(',', ''));
+    return total + (price * item.quantity);
+  }, 0);
 
   return (
     <>
@@ -49,6 +54,7 @@ const AppRoutes = () => {
         />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/cart" element={<Cart cart={cart} />} />
+        <Route path="/checkout" element={<Checkout cartItems={cart} totalPrice={totalPrice} />} />
       </Routes>
     </>
   );

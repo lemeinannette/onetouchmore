@@ -25,9 +25,6 @@ const NavBar = () => {
           <Link to="/contact-us">Contact Us</Link>
         </li>
         <li>
-          <Link to="/cart">Cart</Link>
-        </li>
-        <li>
           <Link to="/find-repair">Accessory Hunt</Link>
         </li>
       </ul>
