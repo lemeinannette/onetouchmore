@@ -1,40 +1,45 @@
+
 .feature-cards-container {
     display: flex;
     justify-content: center;
-    gap: 1rem; /* Adds space between the cards */
+    gap: 0.5rem; 
     flex-wrap: wrap;
-    padding: 2rem; /* Adds space around the container */
+    padding: 1rem;
 }
 
 .feature-card {
     background: #f9f9f9;
     border: 1px solid #ddd;
-    border-radius: 4px; /* Sharp corners */
-    padding: 1rem;
-    width: 220px; /* Slightly wider for better spacing */
+    border-radius: 4px;
+    padding: 0.8rem; 
+    width: 240px; 
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    font-family: Arial, sans-serif;
     align-items: center;
     justify-content: center;
+    margin: 0; 
 }
 
 .feature-card.turnaround {
-    background: #e0f7fa; /* Example background color for turnaround card */
+    background: #e0f7fa; 
 }
 
 .feature-icon {
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Maintain aspect ratio */
-    margin-bottom: 0.5rem; /* Space between the icon and heading */
-    object-fit: contain; /* Ensures the image fits within the specified dimensions without distortion */
+    width: 50px; 
+    height: 50px; 
+    margin-bottom: 0.4rem; 
+    object-fit: contain;
 }
 
 .feature-card h3 {
-    margin: 0.5rem 0; /* Adjust spacing around the heading */
+    margin: 0.3rem 0;
 }
 
 .feature-card p {
-    margin: 0;
+    margin: 0; 
+    font-size: 16px;
+    color: #555;
 }

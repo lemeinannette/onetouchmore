@@ -3,7 +3,6 @@ import "./BookRepair.css"; // Make sure this file is in the same folder
 import Footer from "../Footer/Footer"; // Adjust the import path as needed
 
 const BookRepair = () => {
-  // State hooks to manage form inputs
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -16,12 +15,48 @@ const BookRepair = () => {
   const [customIssue, setCustomIssue] = useState("");
   const [additionalDetails, setAdditionalDetails] = useState("");
   const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
+
+  // Function to validate phone number
+  const validatePhoneNumber = (number) => {
+    const phoneRegex = /^[0-9]{10,14}$/; // Adjust for your required format
+    return phoneRegex.test(number);
+  };
+
+  // Function to validate email
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Custom validation function
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!name) newErrors.name = "Name is required";
+    if (!phoneModel) newErrors.phoneModel = "Phone model is required";
+    if (!issue) newErrors.issue = "Please select an issue";
+    
+    if (contactMethod === "phone" && !validatePhoneNumber(phoneNumber)) {
+      newErrors.phoneNumber = "Please enter a valid phone number";
+    }
+
+    if (contactMethod === "email" && !validateEmail(email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Return true if no errors
+  };
 
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send data to an API or email)
-    setMessage("Your repair request has been submitted!");
+    if (validateForm()) {
+      setMessage("Your repair request has been submitted!");
+    } else {
+      setMessage(""); // Clear the message if validation fails
+    }
   };
 
   return (
@@ -39,17 +74,14 @@ const BookRepair = () => {
             <div className="form-group">
               <label htmlFor="name">Name:</label>
               <input
-                type="email"
+                type="text"
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
                 placeholder="Enter your full name"
               />
-              <small className="form-explanation">
-                This is your name as it appears on your ID or any official
-                document.
-              </small>
+              {errors.name && <span className="error-message">{errors.name}</span>}
             </div>
 
             <div className="form-group">
@@ -62,9 +94,7 @@ const BookRepair = () => {
                 required
                 placeholder="Enter the phone model"
               />
-              <small className="form-explanation">
-                Specify the model of the phone you are bringing in for repair.
-              </small>
+              {errors.phoneModel && <span className="error-message">{errors.phoneModel}</span>}
             </div>
           </div>
 
@@ -75,6 +105,7 @@ const BookRepair = () => {
                 id="issue"
                 value={issue}
                 onChange={(e) => setIssue(e.target.value)}
+                required
               >
                 <option value="">Select the issue</option>
                 <option value="Hardware Issues">Hardware Issues</option>
@@ -84,6 +115,7 @@ const BookRepair = () => {
                 <option value="Network Issues">Network Issues</option>
                 <option value="Other">Other (please specify)</option>
               </select>
+              {errors.issue && <span className="error-message">{errors.issue}</span>}
               {issue === "Other" && (
                 <input
                   type="text"
@@ -92,10 +124,6 @@ const BookRepair = () => {
                   onChange={(e) => setCustomIssue(e.target.value)}
                 />
               )}
-              <small className="form-explanation">
-                Describe the problem you are experiencing with your phone.
-                Choose 'Other' if none of the listed options fit.
-              </small>
             </div>
 
             <div className="form-group">
@@ -119,10 +147,6 @@ const BookRepair = () => {
                   onChange={(e) => setCustomStatus(e.target.value)}
                 />
               )}
-              <small className="form-explanation">
-                Select the condition of your phone. If 'Water Damage' or
-                'Other', please provide additional details.
-              </small>
             </div>
           </div>
 
@@ -139,10 +163,6 @@ const BookRepair = () => {
                 <option value="Repair History">Repair History</option>
                 <option value="None">None</option>
               </select>
-              <small className="form-explanation">
-                Provide any diagnostic information you have or select 'None' if
-                you don't have a diagnostic report.
-              </small>
             </div>
 
             <div className="form-group">
@@ -155,10 +175,6 @@ const BookRepair = () => {
                 <option value="phone">Phone</option>
                 <option value="email">Email</option>
               </select>
-              <small className="form-explanation">
-                Choose how you would prefer to be contacted regarding your
-                repair status and updates.
-              </small>
             </div>
 
             {contactMethod === "phone" && (
@@ -172,9 +188,9 @@ const BookRepair = () => {
                   required={contactMethod === "phone"}
                   placeholder="Enter your phone number"
                 />
-                <small className="form-explanation">
-                  Please provide a valid phone number where we can reach you.
-                </small>
+                {errors.phoneNumber && (
+                  <span className="error-message">{errors.phoneNumber}</span>
+                )}
               </div>
             )}
 
@@ -189,9 +205,7 @@ const BookRepair = () => {
                   required={contactMethod === "email"}
                   placeholder="Enter your email address"
                 />
-                <small className="form-explanation">
-                  Please provide a valid email address where we can reach you.
-                </small>
+                {errors.email && <span className="error-message">{errors.email}</span>}
               </div>
             )}
           </div>
@@ -205,10 +219,6 @@ const BookRepair = () => {
                 onChange={(e) => setAdditionalDetails(e.target.value)}
                 placeholder="Provide any additional information here..."
               />
-              <small className="form-explanation">
-                Use this section to provide any other details that may help us
-                understand the issue better.
-              </small>
             </div>
           </div>
 

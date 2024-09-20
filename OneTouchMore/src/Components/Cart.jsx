@@ -1,45 +1,18 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import './Cart.css'; 
 import Checkout from './Checkout';  // Import the Checkout component
 
-const Cart = ({ cart }) => {
-  const [cartItems, setCartItems] = useState(cart.map(item => ({ ...item, quantity: 1 })));
-  const navigate = useNavigate();  // Hook for navigation
+const Cart = ({ cart, handleAddQuantity, handleDecreaseQuantity, handleRemoveFromCart }) => {
 
-  const handleAddQuantity = (index) => {
-    const updatedCart = cartItems.map((item, i) => 
-      i === index ? { ...item, quantity: item.quantity + 1 } : item
-    );
-    setCartItems(updatedCart);
-  };
-
-  const handleDecreaseQuantity = (index) => {
-    const updatedCart = cartItems.map((item, i) => 
-      i === index ? { ...item, quantity: Math.max(1, item.quantity - 1) } : item
-    );
-    setCartItems(updatedCart);
-  };
-
-  const handleRemoveFromCart = (index) => {
-    const updatedCart = cartItems.filter((_, i) => i !== index);
-    setCartItems(updatedCart);
-  };
-
-  const totalPrice = cartItems.reduce((total, item) => {
+  const totalPrice = cart.reduce((total, item) => {
     const price = parseInt(item.price.replace('Sh', '').replace(',', ''));
     return total + (price * item.quantity);
   }, 0);
 
-  const handleCheckoutClick = () => {
-    // Navigate to the Checkout page
-    navigate('/checkout');
-  };
-
   return (
     <div className="cart-container">
       <h2>Your Cart</h2>
-      {cartItems.length === 0 ? (
+      {cart.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
         <div className="cart-content">
@@ -54,18 +27,18 @@ const Cart = ({ cart }) => {
               </tr>
             </thead>
             <tbody>
-              {cartItems.map((item, index) => (
-                <tr key={index}>
+              {cart.map((item) => (
+                <tr key={item.id}>
                   <td>{item.name}</td>
                   <td>{item.price}</td>
                   <td>
-                    <button onClick={() => handleDecreaseQuantity(index)}>-</button>
+                    <button onClick={() => handleDecreaseQuantity(item)}>-</button>
                     {item.quantity}
-                    <button onClick={() => handleAddQuantity(index)}>+</button>
+                    <button onClick={() => handleAddQuantity(item)}>+</button>
                   </td>
                   <td>Sh {(parseInt(item.price.replace('Sh', '').replace(',', '')) * item.quantity).toLocaleString()}</td>
                   <td>
-                    <button onClick={() => handleRemoveFromCart(index)}>Delete</button>
+                    <button onClick={() => handleRemoveFromCart(item)}>Delete</button>
                   </td>
                 </tr>
               ))}
@@ -74,7 +47,6 @@ const Cart = ({ cart }) => {
 
           <div className="cart-summary">
             <h3>Subtotal: Sh {totalPrice.toLocaleString()}</h3>
-            <button className="checkout-button" onClick={handleCheckoutClick}>Checkout</button>
           </div>
         </div>
       )}

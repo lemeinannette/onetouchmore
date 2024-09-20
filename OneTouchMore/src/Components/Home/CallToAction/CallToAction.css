@@ -2,9 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 5px; 
   background-color: #fff; /* White background for the card */
-  border-radius: 20px; /* Oval shape */
+  border-radius: 20px; /* Keep the oval shape */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
   text-align: center; /* Center-align content */
 }
@@ -16,18 +16,18 @@
 .cta-content h2 {
   font-size: 24px;
   color: #333; /* Dark text color */
-  margin-bottom: 10px;
+  margin-bottom: 8px; /* Reduced margin to tighten spacing */
 }
 
 .cta-content p {
   font-size: 16px;
-  color: #666; /* Muted text color */
-  margin-bottom: 20px;
+  color: #555; /* Muted text color */
+  margin-bottom: 15px; /* Reduced margin to tighten spacing */
   line-height: 1.5;
 }
 
 .cta-schedule-btn {
-  padding: 12px 24px;
+  padding: 10px 20px; /* Reduced padding to make button more compact */
   font-size: 16px;
   color: #fff;
   background-color: #3cd8c9; /* Primary color */

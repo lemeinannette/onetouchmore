@@ -1,3 +1,19 @@
+/* Home.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container > * {
+  margin-bottom: 2rem; /* Adds consistent spacing between all direct children */
+}
+
+.home-container > *:last-child {
+  margin-bottom: 0; /* Removes margin from the last child to avoid extra space at the bottom */
+}
+
+/* Existing styles */
 .hero-section {
   display: flex;
   justify-content: space-between;
@@ -11,8 +27,9 @@
 }
 
 .text-section p {
-  font-size: 1.2rem;
+  font-size: 16px;
   margin-bottom: 1rem;
+  color: #555;
 }
 
 .cta-button {
@@ -26,7 +43,6 @@
 .features-section {
   display: flex;
   justify-content: space-around;
-  margin-top: 2rem;
 }
 
 .feature-card {
@@ -39,7 +55,6 @@
 .repair-categories {
   display: flex;
   justify-content: space-around;
-  margin: 2rem 0;
 }
 
 .category-card {
@@ -51,7 +66,6 @@
 
 .call-to-action {
   text-align: center;
-  margin: 2rem 0;
   padding: 2rem;
   background-color: #f8f9fa;
 }

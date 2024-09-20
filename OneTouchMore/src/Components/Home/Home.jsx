@@ -5,14 +5,15 @@ import FeatureCard from "./FeatureCard/FeatureCard";
 import RepairCategories from "./RepairCategories/RepairCategories";
 import CallToAction from "./CallToAction/CallToAction";
 import Footer from "../Footer/Footer";
+
 const Home = () => {
   return (
-    <div>
-    <HeroSection />
-    <FeatureCard />
-    <RepairCategories />
-    <CallToAction />
-    <Footer />
+    <div className="home-container">
+      <HeroSection />
+      <FeatureCard />
+      <RepairCategories />
+      <CallToAction />
+      <Footer />
     </div>
   );
 };

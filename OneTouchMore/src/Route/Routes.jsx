@@ -10,27 +10,61 @@ import FindRepair from "../Components/FindRepairs/FindRepair";
 import Admin from "../Components/Admin/Admin";
 import Dashboard from "../Components/Admin/Dashboard";
 import Cart from "../Components/Cart";
-import Checkout from "../Components/Checkout"; // Import the Checkout component
+import Checkout from "../Components/Checkout"; 
 
 const AppRoutes = () => {
   const [cart, setCart] = useState([]);
   const location = useLocation();
 
   const isAdminAccess = () => {
-    // Check for admin access via a query parameter or URL path
     const searchParams = new URLSearchParams(window.location.search);
-    return searchParams.get("key") === "12345secureAccess"; // Replace with your actual secret key
+    return searchParams.get("key") === "12345secureAccess";
   };
 
-  // Determine if the NavBar should be shown based on the current route
   const showNavBar = location.pathname !== "/dashboard";
 
   const handleAddToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
-    console.log(cart);
+    setCart((prevCart) => {
+      const itemInCart = prevCart.find((cartItem) => cartItem.id === item.id);
+      if (itemInCart) {
+        return prevCart.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      } else {
+        return [...prevCart, { ...item, quantity: 1 }];
+      }
+    });
   };
 
-  // Calculate total price for checkout
+  const handleAddQuantity = (item) => {
+    setCart((prevCart) =>
+      prevCart.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      )
+    );
+  };
+
+  const handleDecreaseQuantity = (item) => {
+    setCart((prevCart) =>
+      prevCart.map((cartItem) =>
+        cartItem.id === item.id
+          ? {
+              ...cartItem,
+              quantity: cartItem.quantity > 1 ? cartItem.quantity - 1 : 1,
+            }
+          : cartItem
+      )
+    );
+  };
+
+  const handleRemoveFromCart = (item) => {
+    setCart((prevCart) => prevCart.filter((cartItem) => cartItem.id !== item.id));
+  };
+
   const totalPrice = cart.reduce((total, item) => {
     const price = parseInt(item.price.replace('Sh', '').replace(',', ''));
     return total + (price * item.quantity);
@@ -38,7 +72,6 @@ const AppRoutes = () => {
 
   return (
     <>
-      {/* Conditionally render the NavBar based on the current route */}
       {showNavBar && <NavBar />}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -47,13 +80,22 @@ const AppRoutes = () => {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/book-repair" element={<BookRepair />} />
         <Route path="/find-repair" element={<FindRepair handleAddToCart={handleAddToCart} cart={cart} />} />
-        {/* Admin Route - Accessible via hidden key */}
         <Route
           path="/admin-access"
           element={isAdminAccess() ? <Admin /> : <Navigate to="/" />}
         />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/cart" element={<Cart cart={cart} />} />
+        <Route 
+          path="/cart" 
+          element={
+            <Cart 
+              cart={cart} 
+              handleAddQuantity={handleAddQuantity} 
+              handleDecreaseQuantity={handleDecreaseQuantity} 
+              handleRemoveFromCart={handleRemoveFromCart} 
+            />
+          } 
+        />
         <Route path="/checkout" element={<Checkout cartItems={cart} totalPrice={totalPrice} />} />
       </Routes>
     </>
