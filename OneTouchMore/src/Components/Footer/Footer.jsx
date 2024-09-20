@@ -14,7 +14,7 @@ const Footer = () => {
 
         <div className="footer-info">
           <p>1234 Your Address, City, Country</p>
-          <p>Email: contact@yourcompany.com</p>
+          <p>© 2024 OneTouchMore Phone Repairs. All rights reserved.</p>
         </div>
       </div>
     </footer>
